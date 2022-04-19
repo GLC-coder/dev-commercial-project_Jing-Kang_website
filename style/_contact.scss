@@ -1,0 +1,174 @@
+/*contact us page*/
+/*Inheritence for contact page title*/
+%contact-title{
+    font: {
+        size: (nth($list: $size-list, $n: 2 )) - 4px;
+        family: nth($list: $fonts , $n: 2);
+        weight: normal;
+    }
+    color: map-get($map: $colors, $key: light-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    margin-top:20px;
+    line-height: 1.3em;
+}
+/*Inheritence for font-icon*/
+%contact-font-icon{
+    display: flex;
+    color: map-get($map: $colors, $key: light-blue );
+    width: 30px;
+    height: 30px;
+    background-color: map-get($map: $colors, $key: bar-color );
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.content{
+    max-width: $header-bar-width;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    .map{
+        width: $header-inner-width;
+        height: 420px;
+        border: 0;
+        margin: 60px auto;
+    }
+    .contact{
+        width: $header-inner-width;
+        margin: auto;
+        position: relative;
+        display: flex;
+        @at-root .contact__details{
+            flex: 40%;
+            display: flex;
+            flex-direction: column;
+            h3{ 
+                @extend %contact-title;
+            }
+            ul{
+                list-style: none;
+                padding-left: 0px;
+                margin-top:0px;
+                li{
+                    display: flex;
+                    align-items: center;
+                    // height: 42px;
+                    i{
+                      @extend %contact-font-icon;
+                    }
+                    p{
+                        margin-left:30px;
+                    }
+                }
+            }
+        }
+        .contact__form{
+            flex: 60%;
+            border-radius: 3px;
+            // box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
+            margin-left:20px;
+            h3{
+                @extend %contact-title;
+            }
+            @at-root form{
+                width: 100%;
+                border: none;
+                .form__item{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    i{
+                        @extend %contact-font-icon;
+                    }
+                    i.message{
+                        align-self: flex-start;
+                    }
+                    input{
+                        height: 40px;
+                        padding: 5px 10px ;
+                    }
+                    input, textarea{
+                        width: 100%;
+                        border: none;
+                        padding: 5px 10px;
+                        margin-bottom: 10px;
+                        margin-left:10px;
+                        margin-right:20px;
+                        border-bottom:1px solid map-get($map: $colors, $key: light-dark);
+                    }
+                    textarea{
+                        resize: vertical;
+                    }
+                    input:focus, textarea:focus{
+                       outline: none;
+                       border-bottom: 1px solid map-get($map: $colors, $key: light-blue );
+                    }
+                }
+                input[type="submit"]{
+                    border: none;
+                    text-decoration: none;
+                    color:map-get($map: $colors, $key: white);
+                    background-color : map-get($map: $colors, $key: dark);
+                    box-shadow:$shadow-btn;
+                    text-transform: uppercase;
+                    height: 40px;
+                    padding: auto 25px;
+                    margin-bottom: nth($list: $size-list, $n: 2) ;
+                    margin-top: nth($list: $size-list, $n: 2);
+                    margin-left:40px;
+                    width: 150px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    line-height: 40px;
+                    transition: $transition-effect;
+                    -webkit-transition:$-webkit-transition-effect;
+                    -moz-transition:$-moz-transition-effect;
+                    cursor: pointer;
+                    &:hover {
+                        @extend %social-btn-hover;
+                    }
+                }
+               
+            }
+        }
+    }
+}
+.form-alert{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: map-get($map: $colors, $key: white);
+    opacity: 0;
+    z-index: -1;
+    min-width: 400px;
+    min-height: 200px;
+    width: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px map-get($map: $colors, $key: light-blue);
+    padding: 20px;
+    button{
+        float: right;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        i{
+            font-size: 25px;
+        }
+    }
+    p{
+        color: map-get($map: $colors, $key: dark );
+        margin-left: 50px;
+    }
+    transition: $transition-effect;
+    -webkit-transition: $-webkit-transition-effect; 
+    -moz-transition: $-moz-transition-effect; 
+}
+.form-alert.active{
+    opacity: 1;
+    z-index: 6;
+    
+}

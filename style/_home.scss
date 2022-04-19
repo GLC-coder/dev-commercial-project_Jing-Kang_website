@@ -1,0 +1,160 @@
+/*Home Page area*/
+*{
+    box-sizing: border-box;
+    font-size: nth($list: $size-list, $n: 1);
+    font-family: nth($fonts, 1), nth($fonts, 3);
+    font-weight: normal;
+    color: map-get($map: $colors, $key: light-dark);
+    line-height: 26px;
+}
+// Minxin for respansive
+
+@mixin media-width($width) {
+    @media screen and (max-width:$width) {
+        @content;
+    }
+};
+// Mixin for home-h1
+@mixin title-style($color) {
+    font: {
+        family: nth($list: $fonts, $n:2);
+        size: map-get($map: $font-size-list, $key: large);
+        weight: bold;
+    }
+    color: $color;
+    letter-spacing: 1px;
+    line-height: normal;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+//Inheritence for hover effect
+%social-btn-hover{
+    background-color: map-get($map: $colors, $key: light-blue);
+    transform: $transform-effect;
+    -webkit-transform: $-webkit-transform-effect;
+    -moz-transform:$-moz-transform-effect;
+    box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-blue);
+}
+/*Inheritence button for home page dowload button & profile page hire me button*/
+%button-link{
+            display: inline-block;
+            text-decoration: none;
+            color:map-get($map: $colors, $key: white);
+            background-color : map-get($map: $colors, $key: dark);
+            box-shadow:$shadow-btn;
+            text-transform: uppercase;
+            padding: 6px 25px;
+            margin-bottom: nth($list: $size-list, $n: 2) ;
+            width: 228.94px;
+            letter-spacing: 1px;
+            line-height: 40px;
+            font-weight: bold;
+            transition: $transition-effect;
+            -webkit-transition:$-webkit-transition-effect;
+            -moz-transition:$-moz-transition-effect;
+            cursor: pointer;
+            &:hover {
+                @extend %social-btn-hover;
+            }
+}
+/* home-content*/
+.home{
+    display: flex;
+    // overflow: scroll;
+    margin: {
+        right: auto;
+        left: auto;
+        top :40px;
+    }
+    max-width: $header-bar-width;
+   
+    @at-root .home__hero{
+        flex: 42%;
+        padding:0px 10px ;
+        border-radius: 10px;
+        img{
+            width: 100%;
+            height: auto;
+        } 
+    }
+    @at-root .home__content{
+        position: relative;
+        flex: 60%;
+        padding:0px 20px ;    
+       
+        p:first-child{
+            font-size:1.25rem ;
+            color: map-get($map: $colors, $key:light-dark);
+            margin: {
+                top: 16px;
+                bottom: 16px;
+            }
+        }
+        h1{
+            @include title-style(map-get($map: $colors, $key: dark));
+            span{
+                @include title-style(map-get($map: $colors, $key: light-blue));
+            }
+            text-transform: uppercase;
+        }
+        h3{
+            font: {
+                family: nth($list: $fonts, $n:2);
+                size:nth($list: $size-list, $n:1) * 1.875;
+                weight: normal;
+            }
+            line-height: 1.3em;
+            letter-spacing: 1px;
+            color: map-get($map: $colors, $key: dark);
+            text-transform: uppercase;
+        }
+        h2{
+            font: {
+                family: nth($list: $fonts, $n:2);
+                size:nth($list: $size-list, $n:1) * 2;
+                weight: normal;
+            }
+            line-height: 1.3em;
+            letter-spacing: 1px;
+            color: map-get($map: $colors, $key: light-blue);
+            text-transform: uppercase;
+        }
+        
+        img[alt="signature"] {
+            width: 40%;
+        }
+        a.download-btn{
+            @extend %button-link;
+        }
+        @at-root .home__content-social{
+            display: flex;
+            width: 228.94px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            a {
+               display: flex;
+               width: (nth($list: $size-list, $n: 1) * 3) - 8px ;
+               height: (nth($list: $size-list, $n: 1) * 3) - 8px;
+               line-height: 43px;
+               background-color: map-get($map: $colors, $key: dark );
+               border-radius: 50%;
+               box-shadow:$shadow-btn;
+               justify-content: center;
+               align-items: center;
+               transition: $transition-effect;
+               -webkit-transition:$-webkit-transition-effect;
+               -moz-transition:$-moz-transition-effect;
+               cursor: pointer;
+               &:hover{
+                   @extend %social-btn-hover;
+               }
+               .svg{
+                   width: nth($list: $size-list, $n: 1) + 4px;
+                   height: nth($list: $size-list, $n: 1) + 4px;
+                   fill: map-get($map: $colors, $key: white);
+               }
+            }
+        }
+    }
+}

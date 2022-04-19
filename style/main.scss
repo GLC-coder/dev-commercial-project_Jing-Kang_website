@@ -1,0 +1,149 @@
+@import "variables";
+@import "_menu-hamburger";
+@import "navigation";
+@import "home";
+@import "header";
+@import "profile";
+@import "resume";
+@import "contact";
+@import "footer";
+
+/*Responsive media part*/
+
+// @include media-width(992px) {
+//     .home__content h1, .home__content h1 span{
+//         font-size: map-get($map: $font-size-list, $key: second);
+//     }
+// }
+@include media-width(768px) {
+    // .home{
+    //     flex-direction: column;
+    // }
+    @at-root {
+        .home__content { 
+            h1,  h1 span{
+            font-size:map-get($map: $font-size-list, $key: second);
+            }
+            h2, h3{
+                font-size: nth($list: $size-list, $n: 1) *1.5 ;
+            }
+        }
+        .profile__hero{
+            display: none !important;
+        }
+    }
+    button.menu-hamburger{
+        top: 50px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        .svg{
+            width: 40px;
+            height: 40px;
+        }
+    }
+    .info .info__box{
+        h3{
+            font-size: 26px;
+        }
+        p{
+            font-size: 10px;
+        }
+    }
+    .skills ul li.skills__item{
+        width: 50%;
+        i.lg{
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    .resume{
+        flex-direction: column; 
+    }
+    .skill-bar{
+        .skill-level{
+            .level__wrapper{
+                flex-direction: column;
+            }
+        }
+    }
+    .content .contact{
+        flex-direction: column;
+        .contact__details{
+            margin-left:20px;
+        }
+    }
+    
+}
+@include media-width(425px) {
+    .home{
+        flex-direction: column;
+    }
+    .home__content h1, .home__content h1 span{
+        font-size:map-get($map: $font-size-list, $key: third);
+    }
+    .home__content a.download-btn, .profile__intro a.hire-me__btn{        
+        display: block;
+        margin-right: auto;
+        margin-left:auto;
+    }
+    
+    .home__content-social{
+        margin-left:auto;
+        margin-right:auto;
+    }
+    button.menu-hamburger{
+        top: 30px;
+        left: 30px;
+        width: 50px;
+        height: 50px;
+        .svg{
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .info .info__box{
+        width: 50%;
+    }
+    .skills ul li.skills__item{
+        width: 100%;
+        i.sm{
+            font-size: 45px;
+            margin-right: 20px;
+        }
+        i.lg{
+            font-size:60px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          
+        }
+    }
+    .interest__item{
+        flex-wrap: wrap;
+        div{
+            flex: 50%;
+            img{
+                width: 50%;
+            }
+        }
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$colors: (light-dark:#777777,dark:#333333, light-blue:#4ac3bf, white:#fff, bar-color:#f5f5f5, header-color: #f6f6f6, timeline-color: #e0e0e0);
+$fonts:('Lato', 'Oswald', sans-serif);
+$size-list: (16px, 30px, 70px,100px, 500px);
+$transition-effect :  all 0.5s ease-in;
+$-webkit-transition-effect:  all 0.5s ease-in;
+$-moz-transition-effect:  all 0.5s ease-in;
+$transform-effect: translateY(-5px);
+$-webkit-transform-effect: translateY(-5px);
+$-moz-transform-effect: translateY(-5px);
+$shadow-btn: 0px 0px 10px map-get($map: $colors, $key: dark);
+$font-size-list: (large: 4.375rem, second: 3.125rem, third: 2.5rem);
+$header-hight: 158px;
+$header-width:100%;
+$header-bar-width:80rem;
+$header-inner-width:90%;

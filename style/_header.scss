@@ -1,0 +1,89 @@
+/*header area*/
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $header-width;
+    height: $header-hight;
+    background-color: map-get($map: $colors, $key:  header-color );
+    .header__bar{
+        margin: auto;
+        width: $header-bar-width;
+        @at-root .header__inner{
+            width: $header-inner-width;
+            display: flex;
+            margin: auto;
+            justify-content: space-between;
+            align-items: center;
+            .menu-hamburger{
+                position: relative;
+                top: auto;
+                left: auto;
+                width: 50px;
+                height: 50px;
+                &:hover .svg {
+                    // fill:map-get($map: $colors, $key: light-blue) ;
+                    transform: translate(-5px, 5px); 
+                    -webkit-transform: translate(-5px, 5px);
+                    -moz-transform:translate(-5px, 5px)
+                }
+            }
+            @at-root .header__detail{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+               a.logo-link{
+                    position: relative;
+                    z-index: 1;
+                    display: block;
+                    width: 88px;
+                    height: 88px;
+                    overflow: hidden;
+                    border-radius: 50%;
+                    box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-dark);
+                    transition: $transition-effect;
+                    -webkit-transition:$-webkit-transition-effect;
+                    -moz-transition:$-moz-transition-effect;
+                    &:hover{
+                        box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-blue);
+                        transform: scale(1.2); 
+                    }
+                    img[alt="logo"]{
+                        position: relative;
+                        z-index: -1;
+                        width: 100%; 
+                    } 
+                }
+               @at-root .header__page-title{
+                   margin-left: 32px;
+                   h3, p{
+                       font-family: nth($list: $fonts, $n: 2);
+                   }
+                   h3{
+                       font-size: 24px;
+                       font-weight: normal;
+                       color: map-get($map: $colors, $key: light-blue );
+                       text-transform: uppercase;
+                       letter-spacing: 1px;
+                       margin: 0;
+                       margin-bottom: 5px;
+                   }
+                   p{
+                       font-size: 18px;
+                       font-weight: 100;
+                       color: map-get($map: $colors, $key: dark );
+                       letter-spacing: 0.5px;
+                       text-transform: uppercase;
+                       margin: 0;
+
+                   }
+               }
+
+            }
+
+        }
+        
+    }
+    
+
+}

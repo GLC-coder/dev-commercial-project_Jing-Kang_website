@@ -1,0 +1,26 @@
+/*Menu-hamburger button*/
+button.menu-hamburger{
+    display: block;
+    position: fixed;
+    width:50px;
+    height: 50px;
+    top: 50px;
+    left: 50px;
+    border: none;
+    background-color:transparent;
+    z-index: 99;
+    .svg{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transition: $transition-effect;
+        -webkit-transition:$-webkit-transition-effect;
+        -moz-transition:$-moz-transition-effect;
+    } 
+    &:hover .svg {
+        // fill:map-get($map: $colors, $key: light-blue) ;
+        transform: translate(5px, 5px); 
+        -webkit-transform: translate(5px, 5px);
+        -moz-transform:translate(5px, 5px)
+    }
+}

@@ -1,0 +1,218 @@
+/*profile page area*/
+/*Profile page-About me area*/
+.profile__about-me{
+    max-width:$header-bar-width ;
+    margin: auto;
+    display: flex;
+    // flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 300px;
+    .profile__hero{
+        flex: 30%;  
+        margin:40px 0px 40px 40px;
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
+            border: none;
+            box-shadow: 0 0 10px map-get($map: $colors, $key: dark);
+            overflow: hidden;
+        }
+    }
+    @at-root .profile__intro{
+        flex:70%;
+        margin: 0px 40px;
+        h3{
+            font: {
+                family: nth($list: $fonts, $n: 2 );
+                size: nth($list: $size-list, $n: 1) *2;
+                weight:normal;
+            }
+            line-height: 1.3em;
+            letter-spacing: 1px;
+            color:map-get($map: $colors, $key: light-blue);
+            text-transform: uppercase; 
+        }
+        p span{
+            font-weight: bold;
+            color: map-get($map: $colors, $key: dark);
+        }
+        a.hire-me__btn{
+            @extend %button-link;
+        }
+        a.hire-me__btn{
+            margin-bottom: 20px;
+        }
+    }
+
+}
+/* profile page-info boxes area*/
+.info{
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    overflow: hidden;
+    .info__box:nth-child(1), .info__box:nth-child(3){
+        background-color: #3b3b3b;
+    }
+    .info__box:nth-child(2), .info__box:nth-child(4){
+        background-color: #343434;
+    }
+    .info__box{
+        position: relative;
+        width: 25%;
+        height: 100%;
+        border:none;
+        display: flex;
+        flex-direction: column;
+        padding-top: 15px;
+        padding-bottom: 50px;
+        a{
+            text-decoration: none;
+            line-height: 0;
+        }
+        i:first-child{
+          font-size: 50px;
+          line-height: 65px;
+          opacity: 0.5;
+        }
+        h3{
+            font: {
+                size:40px;
+                weight:bold;
+            }
+            color:map-get($map: $colors, $key:light-blue );
+            text-transform: uppercase;
+            margin:0;
+            line-height: 50px;
+            transition: $transition-effect;
+            -webkit-transition:$-webkit-transition-effect;
+            -moz-transition:$-moz-transition-effect;
+        }  
+        p{
+            font-weight: normal;
+            color: map-get($map: $colors, $key: white);
+            letter-spacing: 1.7px;
+            text-transform: uppercase;
+            margin:0;
+            font-size: 12px;
+        }
+        i.lg{
+            opacity: 0.2;
+            display: block;
+            position: absolute;
+            right: -20px;
+            bottom: -70px;
+            transition: $transition-effect;
+            -webkit-transition:$-webkit-transition-effect;
+            -moz-transition:$-moz-transition-effect;
+            font: {
+                size:100px;
+                weight:bold;
+            }
+           
+        }
+        &:hover{
+            transition: $transition-effect;
+            background-color: map-get($map: $colors, $key: light-blue);
+            h3{
+                color:map-get($map: $colors, $key: white) ;
+            }
+             
+        }
+        &:hover i.lg{
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%)
+        }
+     
+    }
+}
+/*profile page-skills list area*/
+.skills{
+    position: relative;
+    max-width:$header-bar-width;
+    margin: auto;
+    margin-bottom: 30px;
+    ul{
+       position: relative;
+       list-style: none;
+       display: flex;
+       flex-wrap: wrap;
+       @at-root li.skills__item{
+            position: relative;
+            width: 33.33%;
+            display: flex;
+            padding: 30px 10px;
+            i.sm{
+                display: block;
+                opacity: 0.8;
+                font-size: 60px;
+                font-weight: bold;
+                margin-right:30px;           
+            }
+            i.lg{
+                display: block;
+                position: absolute;
+                right: 30px;
+                bottom: -20px;
+                font-size: 100px;
+                opacity: 0.2;
+                z-index: -1;
+            }
+            @at-root .item__content{
+                h4{
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    margin-bottom: 0px;
+                }
+                .item__text{
+                    display: flex;
+                    i{
+                        margin-right:10px;
+                    }
+                    p{
+                        margin-top:0px;
+                        margin-bottom: 0px;
+                    }
+                }
+            } 
+        }
+        
+    }
+}
+.interest{
+    max-width: $header-bar-width ;
+    margin: auto;
+    margin-top: 40px;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid map-get($map: $colors, $key: light-blue);
+    padding-bottom: 30px;
+    padding-top: 15px;
+    transition: box-shadow 0.5s ease-in;
+    -webkit-transition:box-shadow 0.5s ease-in;
+    -moz-transition:box-shadow 0.5s ease-in;
+    @extend %large-title;
+    i{
+        margin-bottom: 10px;
+    }
+    @at-root .interest__item{
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        div{
+            flex: 25%;
+            img{
+                width: 50%;
+            }
+        }
+    }
+}
