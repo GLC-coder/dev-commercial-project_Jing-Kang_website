@@ -21,7 +21,7 @@
     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script defer type="text/javascript" src="./js/email.js"></script>
-    
+    <script defer src="./js/index.js"></script>
     <title>Jing Kang-Data Analyst | Data Engineer | Finance Analyst | Contact Me</title>
 </head>
 <body>
@@ -127,7 +127,7 @@
             </div>
             <div class="contact__form"> 
                 <h3>Get in Touch</h3>
-                <form action="" id="contact-form" onsubmit="showAlert()">
+                <form action="" id="contact-form" onsubmit="checkCode()">
                     <input type="hidden" name="contact_number">
                     <div class="form__item">
                         <i class="bi bi-person-fill"></i>
@@ -141,11 +141,17 @@
                         <i class="bi bi-chat-dots-fill message"></i>
                         <textarea name="message" id="message"  rows="8" placeholder="Your message..." required></textarea>
                     </div>
-                   
+                   <div class="form__item code-container">
+                       <div>
+                            <p class="code"></p>
+                            <p class="change">Refresh</p>
+                       </div>
+                       <input type="text" name="input-code" class="input-code" placeholder="Enter the code here..." required>
+                   </div>
                     <input type="submit" value="send message"/>
                 </form>
                 <div class="form-alert">
-                    <button type="button" class="close-alt-btn" onclick="showAlert()"><i class="bi bi-x-lg"></i></button>
+                    <button type="button" class="close-alt-btn" onclick="checkCode()"><i class="bi bi-x-lg"></i></button>
                     <p>Hi there,</p>
                     <p>Thank you for your message,</p>
                     <p>I will get back to you ASAP!</p>
@@ -153,7 +159,7 @@
             </div>
         </div>
     </section>
-    <script defer src="./js/index.js"></script>
+   
     <!-- footer section -->
     <footer class="footer"> 
         <div class="footer__text">

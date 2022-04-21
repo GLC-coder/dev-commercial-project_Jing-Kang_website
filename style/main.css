@@ -1061,6 +1061,32 @@ form .form__item input:focus, form .form__item textarea:focus {
   outline: none;
   border-bottom: 1px solid #4ac3bf;
 }
+form .code-container {
+  width: auto;
+  margin-left: 40px;
+}
+form .code-container div {
+  display: flex;
+  align-self: flex-start;
+}
+form .code-container div p.code {
+  width: 100px;
+  background-color: #777777;
+  color: #fff;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  padding: 5px;
+  text-align: center;
+}
+form .code-container div p.change {
+  background-color: #4ac3bf;
+  cursor: pointer;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff;
+}
 form input[type=submit] {
   border: none;
   text-decoration: none;
@@ -1071,7 +1097,7 @@ form input[type=submit] {
   height: 40px;
   padding: auto 25px;
   margin-bottom: 30px;
-  margin-top: 30px;
+  margin-top: 16px;
   margin-left: 40px;
   width: 150px;
   font-size: 14px;
@@ -1288,6 +1314,11 @@ form input[type=submit] {
   }
   .interest__item div img {
     width: 50%;
+  }
+
+  form .code-container {
+    display: flex;
+    flex-direction: column;
   }
 }
 

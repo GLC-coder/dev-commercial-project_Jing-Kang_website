@@ -1,3 +1,4 @@
+
 // convert image to svg
 (() => {
     document.querySelectorAll('img.svg').forEach(svg => {
@@ -134,11 +135,64 @@ for(let i = 0; i < navLinkNumber; i ++) {
     
 })();
 
-//Contact-us subpage => active the form email Alert box
-const showAlert = () => {
-    const displayAlert = document.querySelector('.form-alert');
-    displayAlert.classList.toggle('active');
+//create secret code and check code for form
+const randomCode = document.querySelector(".code");
+const changeCodeBtn = document.querySelector(".change") 
+
+const createCode = () =>{
+    const codeArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    let codeArrayLength = codeArray.length;
+    
+    let code = "";
+    for(let i = 0; i < 6; i ++ ) {
+        let charNum = Math.floor(Math.random() * (codeArrayLength - i) + i );
+        code += codeArray[charNum];
+        
+    }
+    randomCode.innerText = code;
 }
+ //initial the code
+createCode();
+//refresh code
+changeCodeBtn.addEventListener("click", createCode);
+
+// (function() {
+//     // https://dashboard.emailjs.com/admin/account
+//     emailjs.init('SisluO0Mrqog3RPRn');
+// })();
+// document.getElementById('contact-form').addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     // generate a five digit number for the contact_number variable
+//     this.contact_number.value = Math.random() * 100000 | 0;
+//     // these IDs from the previous steps
+//     emailjs.sendForm('contact_service', 'contact_form', this)
+//         .then(function() {
+//             console.log('SUCCESS!');
+//         }, function(error) {
+//             console.log('FAILED...', error);
+//         });
+// });
+
+const checkCode = () => {
+    let code = randomCode.innerText;
+    let inputCodeValue = document.querySelector(".input-code").value;
+    if(code !== inputCodeValue) {
+        document.querySelector(".input-code").value = "";
+        alert("Code wrong!");
+    }else {
+        // sentEmail();
+        const displayAlert = document.querySelector('.form-alert');
+        displayAlert.classList.toggle('active');
+    }
+}
+
+//Contact-us subpage => active the form email Alert box
+// const showAlert = () => {
+//     const displayAlert = document.querySelector('.form-alert');
+//     displayAlert.classList.toggle('active');
+// }
 
 
 
