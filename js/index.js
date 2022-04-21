@@ -25,14 +25,14 @@
     
         setTimeout(() => {
             transitionElement.classList.remove('is-active');
-        }, 200);
+        }, 500);
         const show = (e) =>{
             e.preventDefault();
             let target = e.target.href;
             transitionElement.classList.add("is-active");
             setTimeout(() =>{
                 window.location.href = target;
-            }, 200)
+            }, 500)
         }
         for(let i = 0; i < anchors.length; i ++) {
             anchors[i].addEventListener("click", show)
@@ -43,7 +43,7 @@
             transitionElement.classList.add("is-active");
             setTimeout(() => {
                 window.location.href = target;
-            }, 200)
+            }, 500)
         }
         const logoAnchor = document.querySelector(".logo-link");
         logoAnchor.addEventListener("click", transfer);
