@@ -135,7 +135,6 @@ for(let i = 0; i < navLinkNumber; i ++) {
 })();
 
 //Contact-us subpage => active the form email Alert box
-
 const showAlert = () => {
     const displayAlert = document.querySelector('.form-alert');
     displayAlert.classList.toggle('active');
