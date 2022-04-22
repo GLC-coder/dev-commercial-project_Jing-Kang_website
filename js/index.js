@@ -178,13 +178,12 @@ document.getElementById('contact-form').addEventListener('submit', function(even
                 console.log('FAILED...', error);
             });
         // alert("success!")
-        const displayAlert = document.querySelector('.form-alert');
         displayAlert.classList.add('active');
     }
 });
+const displayAlert = document.querySelector('.form-alert');
 // Contact-us subpage => active the form email Alert box
 const closeAlert = () => {
-    const displayAlert = document.querySelector('.form-alert');
     displayAlert.classList.remove('active');
 }
 
