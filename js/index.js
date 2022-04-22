@@ -51,13 +51,11 @@
     }   
 })();
 
-
 // active navigation bar
 const activeNavigation = () => {
     const menuBtn = document.querySelector(".navigation");
     menuBtn.classList.toggle("active");
 };
-
 
 //show navigation title 
 (() => {
@@ -134,8 +132,7 @@ for(let i = 0; i < navLinkNumber; i ++) {
     }
     
 })();
-
-//create secret code and check code for form
+//create secret code &check code  and submit form
 const randomCode = document.querySelector(".code");
 const changeCodeBtn = document.querySelector(".change") 
 
@@ -149,7 +146,6 @@ const createCode = () =>{
     for(let i = 0; i < 6; i ++ ) {
         let charNum = Math.floor(Math.random() * (codeArrayLength - i) + i );
         code += codeArray[charNum];
-        
     }
     randomCode.innerText = code;
 }
@@ -157,43 +153,40 @@ const createCode = () =>{
 createCode();
 //refresh code
 changeCodeBtn.addEventListener("click", createCode);
-
-// (function() {
-//     // https://dashboard.emailjs.com/admin/account
-//     emailjs.init('SisluO0Mrqog3RPRn');
-// })();
-// document.getElementById('contact-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     // generate a five digit number for the contact_number variable
-//     this.contact_number.value = Math.random() * 100000 | 0;
-//     // these IDs from the previous steps
-//     emailjs.sendForm('contact_service', 'contact_form', this)
-//         .then(function() {
-//             console.log('SUCCESS!');
-//         }, function(error) {
-//             console.log('FAILED...', error);
-//         });
-// });
-
-const checkCode = () => {
+// API for send email by js
+(function() {
+    // https://dashboard.emailjs.com/admin/account
+    emailjs.init('SisluO0Mrqog3RPRn');
+})();
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
     let code = randomCode.innerText;
     let inputCodeValue = document.querySelector(".input-code").value;
     if(code !== inputCodeValue) {
         document.querySelector(".input-code").value = "";
-        alert("Code wrong!");
+        alert("Plese enter the correct code!");
     }else {
-        // sentEmail();
+        // API for send email by js
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = Math.random() * 100000 | 0;
+        // these IDs from the previous steps
+        emailjs.sendForm('contact_service', 'contact_form', this)
+            .then(function() {
+                console.log('SUCCESS!');
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+        // alert("success!")
         const displayAlert = document.querySelector('.form-alert');
-        displayAlert.classList.toggle('active');
+        displayAlert.classList.add('active');
     }
+});
+// Contact-us subpage => active the form email Alert box
+const closeAlert = () => {
+    const displayAlert = document.querySelector('.form-alert');
+    displayAlert.classList.remove('active');
 }
-
-//Contact-us subpage => active the form email Alert box
-// const showAlert = () => {
-//     const displayAlert = document.querySelector('.form-alert');
-//     displayAlert.classList.toggle('active');
-// }
-
 
 
 
