@@ -757,6 +757,8 @@ li.skills__item i.lg {
   transform: translate(-50%, -50%);
   background-color: #fff;
   max-width: 80%;
+  max-height: 80%;
+  overflow: scroll;
   margin: auto;
   border-radius: 5px;
   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
@@ -1265,6 +1267,10 @@ form input[type=submit] {
   }
   .interest__item div img {
     width: 50%;
+  }
+
+  .resume .timeline__item .exp-detail {
+    min-width: 70%;
   }
 
   form .code-container {
