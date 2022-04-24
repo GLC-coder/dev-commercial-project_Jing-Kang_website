@@ -34,29 +34,28 @@
                 window.location.href = target;
             }, 500)
         }
-        for (let i = 0; i < anchors.length; i++) {
-            anchors[i].addEventListener("click", show)
-        }
-        const transfer = (e) => {
-            e.preventDefault();
-            let target = e.target.href;
-            transitionElement.classList.add("is-active");
-            setTimeout(() => {
-                window.location.href = target;
-            }, 500)
-        }
+        
+        anchors.forEach( element => element.addEventListener("click", show));
+        
         const logoAnchor = document.querySelector(".logo-link");
-        logoAnchor.addEventListener("click", transfer);
+        logoAnchor.addEventListener("click", show);
     }
 })();
 
 // active navigation bar
-const activeNavigation = () => {
-    const menuBtn = document.querySelector(".navigation");
-    menuBtn.classList.toggle("active");
-};
+(() => {
+    const openNavBtn = document.querySelector(".menu-hamburger");
+    const closeNavBtn = document.querySelector(".navigation__close-button");
+    
+    const activeNavigation = () => {
+        const menuBtn = document.querySelector(".navigation");
+        menuBtn.classList.toggle("active");
+    }
+    openNavBtn.onclick = activeNavigation;
+    closeNavBtn.onclick = activeNavigation;
+})();
 
-//show navigation title 
+//show navigation title when mouseover and out
 (() => {
     // onmouseover
     const navLinkLists = document.getElementsByClassName("navigation__link");
@@ -64,6 +63,7 @@ const activeNavigation = () => {
     let navLinkNumber = navLinkLists.length;
     const show = (e) => {
         let target = e.target;
+       
         for (let i = 0; i < navLinkNumber; i++) {
             if (navLinkLists[i] === target) {
                 navLinkLists[i].classList.add("active");
@@ -104,7 +104,6 @@ const activeNavigation = () => {
         let target = e.target;
         for (let i = 0; i < LENGTH; i++) {
             if (experienceBtns[i] === target) {
-                // displayIndex =i;
                 experienceBtns[i].classList.add('active');
                 experienceDetailLists[i].classList.add("opened");
             } else {
@@ -128,60 +127,63 @@ const activeNavigation = () => {
     for (let i = 0; i < LENGTH; i++) {
         closeExpBtns[i].addEventListener("click", closeExpDetail);
     }
-
 })();
+
 //create secret code &check code  and submit form
-const randomCode = document.querySelector(".code");
-const changeCodeBtn = document.querySelector(".change")
+(() => {
+    const randomCode = document.querySelector(".code");
+    const changeCodeBtn = document.querySelector(".change")
 
-const createCode = () => {
-        const codeArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
-            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
-        ];
-        let codeArrayLength = codeArray.length;
+    const createCode = () => {
+            const codeArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+                'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+            ];
+            let codeArrayLength = codeArray.length;
 
-        let code = "";
-        for (let i = 0; i < 6; i++) {
-            let charNum = Math.floor(Math.random() * (codeArrayLength - i) + i);
-            code += codeArray[charNum];
+            let code = "";
+            for (let i = 0; i < 6; i++) {
+                let charNum = Math.floor(Math.random() * (codeArrayLength - i) + i);
+                code += codeArray[charNum];
+            }
+            randomCode.innerText = code;
         }
-        randomCode.innerText = code;
-    }
-    //initial the code
-createCode();
-//refresh code
-changeCodeBtn.addEventListener("click", createCode);
-// API for send email by js
-(function() {
-    // https://dashboard.emailjs.com/admin/account
-    emailjs.init('SisluO0Mrqog3RPRn');
-})();
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+        //initial the code
+    createCode();
+    //refresh code
+    changeCodeBtn.addEventListener("click", createCode);
+    // API for send email by js
+    (function() {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init('SisluO0Mrqog3RPRn');
+    })();
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    let code = randomCode.innerText;
-    let inputCodeValue = document.querySelector(".input-code").value;
-    if (code !== inputCodeValue) {
-        document.querySelector(".input-code").value = "";
-        alert("Plese enter the correct code!");
-    } else {
-        // API for send email by js
-        // generate a five digit number for the contact_number variable
-        this.contact_number.value = Math.random() * 100000 | 0;
-        // these IDs from the previous steps
-        emailjs.sendForm('contact_service', 'contact_form', this)
-            .then(function() {
-                console.log('SUCCESS!');
-            }, function(error) {
-                console.log('FAILED...', error);
-            });
-        // alert("success!")
-        displayAlert.classList.add('active');
+        let code = randomCode.innerText;
+        let inputCodeValue = document.querySelector(".input-code").value;
+        if (code !== inputCodeValue) {
+            document.querySelector(".input-code").value = "";
+            alert("Plese enter the correct code!");
+        } else {
+            // API for send email by js
+            // generate a five digit number for the contact_number variable
+            this.contact_number.value = Math.random() * 100000 | 0;
+            // these IDs from the previous steps
+            emailjs.sendForm('contact_service', 'contact_form', this)
+                .then(function() {
+                    console.log('SUCCESS!');
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            displayAlert.classList.add('active');
+        }
+    });
+    const displayAlert = document.querySelector('.form-alert');
+    // Contact-us subpage => active the form email Alert box
+    const closeAlertBtn = document.querySelector(".close-alt-btn");
+    const closeAlert = () => {
+        displayAlert.classList.remove('active');
     }
-});
-const displayAlert = document.querySelector('.form-alert');
-// Contact-us subpage => active the form email Alert box
-const closeAlert = () => {
-    displayAlert.classList.remove('active');
-}
+    closeAlertBtn.onclick =closeAlert;
+})()

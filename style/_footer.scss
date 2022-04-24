@@ -14,7 +14,7 @@
         align-items: center;
         p{
             color: map-get($map: $colors, $key: dark);
-            margin: 0px auto;   
+            margin: 0 auto;   
             span{
                 color: map-get($map: $colors, $key: dark) ;     
             }
@@ -48,11 +48,9 @@
                     transform: $transform-effect;
                     -webkit-transform: $-webkit-transform-effect;
                     -moz-transform:$-moz-transform-effect;
-                    text-shadow: 0px 0px 10px map-get($map: $colors, $key: light-blue);
+                    text-shadow: 0 0 10px map-get($map: $colors, $key: light-blue);
                 }
              }
         }
-        
     }
-    
 }

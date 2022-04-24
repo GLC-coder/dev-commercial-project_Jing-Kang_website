@@ -9,7 +9,7 @@ $-moz-transition-effect:  all 0.5s ease-in;
 $transform-effect: translateY(-5px);
 $-webkit-transform-effect: translateY(-5px);
 $-moz-transform-effect: translateY(-5px);
-$shadow-btn: 0px 0px 10px map-get($map: $colors, $key: dark);
+$shadow-btn: 0 0 10px map-get($map: $colors, $key: dark);
 $font-size-list: (large: 4.375rem, second: 3.125rem, third: 2.5rem);
 $header-hight: 158px;
 $header-width:100%;
