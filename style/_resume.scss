@@ -166,6 +166,8 @@
                     transform: translate(-50%,-50%);
                     background-color: map-get($map: $colors, $key: white);
                     max-width: 80%;
+                    max-height: 80%;
+                    overflow:scroll;
                     margin: auto;
                     border-radius: 5px;
                     box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
