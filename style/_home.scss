@@ -8,7 +8,6 @@
     line-height: 26px;
 }
 // Minxin for respansive
-
 @mixin media-width($width) {
     @media screen and (max-width:$width) {
         @content;
@@ -24,8 +23,8 @@
     color: $color;
     letter-spacing: 1px;
     line-height: normal;
-    margin-top:0px;
-    margin-bottom: 0px;
+    margin-top:0;
+    margin-bottom: 0;
 }
 //Inheritence for hover effect
 %social-btn-hover{
@@ -33,7 +32,7 @@
     transform: $transform-effect;
     -webkit-transform: $-webkit-transform-effect;
     -moz-transform:$-moz-transform-effect;
-    box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-blue);
+    box-shadow: 0 0 10px map-get($map: $colors, $key: light-blue);
 }
 /*Inheritence button for home page dowload button & profile page hire me button*/
 %button-link{
@@ -60,17 +59,15 @@
 /* home-content*/
 .home{
     display: flex;
-    // overflow: scroll;
     margin: {
         right: auto;
         left: auto;
         top :40px;
     }
     max-width: $header-bar-width;
-   
     @at-root .home__hero{
         flex: 42%;
-        padding:0px 10px ;
+        padding:0 10px ;
         border-radius: 10px;
         img{
             width: 100%;
@@ -80,8 +77,7 @@
     @at-root .home__content{
         position: relative;
         flex: 60%;
-        padding:0px 20px ;    
-       
+        padding:0 20px ;    
         p:first-child{
             font-size:1.25rem ;
             color: map-get($map: $colors, $key:light-dark);
@@ -119,7 +115,6 @@
             color: map-get($map: $colors, $key: light-blue);
             text-transform: uppercase;
         }
-        
         img[alt="signature"] {
             width: 40%;
         }

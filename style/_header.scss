@@ -40,12 +40,12 @@ header{
                     height: 88px;
                     overflow: hidden;
                     border-radius: 50%;
-                    box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-dark);
+                    box-shadow: 0 0 10px map-get($map: $colors, $key: light-dark);
                     transition: $transition-effect;
                     -webkit-transition:$-webkit-transition-effect;
                     -moz-transition:$-moz-transition-effect;
                     &:hover{
-                        box-shadow: 0px 0px 10px map-get($map: $colors, $key: light-blue);
+                        box-shadow: 0 0 10px map-get($map: $colors, $key: light-blue);
                         transform: scale(1.2); 
                     }
                     img[alt="logo"]{
@@ -75,15 +75,9 @@ header{
                        letter-spacing: 0.5px;
                        text-transform: uppercase;
                        margin: 0;
-
                    }
                }
-
             }
-
         }
-        
     }
-    
-
 }

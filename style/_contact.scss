@@ -50,12 +50,11 @@
             }
             ul{
                 list-style: none;
-                padding-left: 0px;
-                margin-top:0px;
+                padding-left: 0;
+                margin-top:0;
                 li{
                     display: flex;
                     align-items: center;
-                    // height: 42px;
                     i{
                       @extend %contact-font-icon;
                     }
@@ -68,7 +67,6 @@
         .contact__form{
             flex: 60%;
             border-radius: 3px;
-            // box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.2);
             margin-left:20px;
             h3{
                 @extend %contact-title;
@@ -131,8 +129,7 @@
                             padding-bottom: 5px;
                             color: map-get($map: $colors, $key: white );
                         }
-                    }
-                    
+                    }    
                 }
                 input[type="submit"]{
                     border: none;
@@ -158,7 +155,6 @@
                         @extend %social-btn-hover;
                     }
                 }
-               
             }
         }
     }
@@ -197,5 +193,4 @@
 .form-alert.active{
     opacity: 1;
     z-index: 6;
-    
 }
