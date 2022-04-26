@@ -28,6 +28,7 @@
         }, 500);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         const show = (e) => {
             e.preventDefault();
             let target = e.target.href;
@@ -77,6 +78,23 @@
         // logoAnchor.addEventListener("click", show);
 =======
 >>>>>>> 12f242c (fix bug-test)
+||||||| parent of 368da1e (revert js for link)
+=======
+        const show = (e) => {
+            e.preventDefault();
+            let target = e.target.href;
+            console.log(target);
+            transitionElement.classList.add("is-active");
+            setTimeout(() => {
+                window.location.href = target;
+            }, 500)
+        }
+        
+        anchors.forEach( element => element.addEventListener("click", show));
+        
+        const logoAnchor = document.querySelector(".logo-link");
+        logoAnchor.addEventListener("click", show);
+>>>>>>> 368da1e (revert js for link)
     }
 })();
 
