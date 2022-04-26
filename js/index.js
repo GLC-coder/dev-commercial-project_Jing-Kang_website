@@ -21,8 +21,6 @@
 (() => {
     window.onload = () => {
         const transitionElement = document.querySelector('.transition');
-        const anchors = document.querySelectorAll(".navigation__link");
-
         setTimeout(() => {
             transitionElement.classList.remove('is-active');
         }, 500);
