@@ -26,19 +26,6 @@
         setTimeout(() => {
             transitionElement.classList.remove('is-active');
         }, 500);
-        // const show = (e) => {
-        //     e.preventDefault();
-        //     let target = e.target.href;
-        //     transitionElement.classList.add("is-active");
-        //     setTimeout(() => {
-        //         window.location.href = target;
-        //     }, 500)
-        // }
-        
-        // anchors.forEach( element => element.addEventListener("click", show));
-        
-        // const logoAnchor = document.querySelector(".logo-link");
-        // logoAnchor.addEventListener("click", show);
     }
 })();
 
