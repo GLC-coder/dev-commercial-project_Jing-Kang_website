@@ -5,4 +5,5 @@
 --Use html scss css and vanilla JavaScript only, no any libraries used in this project;
 
 --Please run the code via Visual Studio Code or other editors;
+
 --Visit the website via: wwww.jingkangau.com
