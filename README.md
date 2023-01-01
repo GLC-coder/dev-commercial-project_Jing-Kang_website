@@ -1,4 +1,4 @@
-# p1_Jing-Kang_website
+## Jing-Kang_website
 
 --This is a personal website for JingKang who is a Data Analyst & Data Engineer & Finance Analyst
 
@@ -6,4 +6,9 @@
 
 --Please run the code via Visual Studio Code or other editors;
 
---Visit the website via: wwww.jingkangau.com
+## Technology Stack
+
+HTML5, CSS, SCSS, JavaScript.
+
+## website url
+wwww.jingkangau.com
